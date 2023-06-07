@@ -8,6 +8,7 @@ int main(int argc, const char* argv[])
     initChunk(&chunk);
     writeChunk(&chunk, OP_RETURN);
 
+    // DisassembleChunk transforms machine code into textual listings of the instructions
     disassembleChunk(&chunk, "test chunk");
     freeChunk(&chunk);
     return 0;
