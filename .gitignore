@@ -53,3 +53,5 @@ dkms.conf
 
 way
 settings.json
+*.o
+.o
