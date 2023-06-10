@@ -29,7 +29,7 @@ static int constantInstruction(const char* name, Chunk* chunk, int offset)
 //-----------------------------------------------------------------------------
 static int constantLongInstruction(const char* name, Chunk* chunk, int offset)
 {
-    uint16_t constant = chunk->code[offset + 1]; // Getting index of the constant in the constants pool
+    uint16_t constant = (uint16_t)(chunk->code[offset + 1] << 8 | chunk->code[offset + 2]); // Getting index of the constant in the constants pool
     printf("%-16s %4d '", name, constant); // Printing name of opcode and constant index
     printValue(chunk->constants.values[constant]);
 
