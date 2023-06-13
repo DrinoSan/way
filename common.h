@@ -5,4 +5,6 @@
 #include <stddef.h>  // NULL, size_t stuff
 #include <stdint.h>  // sized integers aka uint8_t stuff
 
+#define DEBUG_TRACE_EXECUTION
+
 #endif
