@@ -48,7 +48,18 @@ static InterpretResult run()
 
     for(;;)
     {
+
+// Macro to print all instructions in stack
 #ifdef DEBUG_TRACE_EXECUTION
+        printf("        ");
+        for(Value* slot = vm.stack; slot < vm.stackTop; slot++)
+        {
+            printf("[ ");
+            printValue(*slot);
+            printf(" ]");
+        }
+        printf("\n");
+
         disassembleInstruction(vm.chunk,(int)(vm.ip - vm.chunk->code));
 #endif
 
