@@ -2,6 +2,7 @@
 #include <stdio.h>
 //-----------------------------------------------------------------------------
 #include "Value.h"
+#include "chunk.h"
 #include "common.h"
 #include "debug.h"
 #include "vm.h"
@@ -76,6 +77,12 @@ static InterpretResult run()
             {
                 Value constant = READ_CONSTANT();
                 push(constant);
+                break;
+            }
+            case OP_NEGATE:
+            {
+                // With pop we get the top most element of stack negate it and push it back to the stack
+                push(-pop());
                 break;
             }
             case OP_RETURN:

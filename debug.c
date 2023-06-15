@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+#include "chunk.h"
 #include "debug.h"
 #include "Value.h"
 
@@ -55,6 +56,7 @@ int disassembleInstruction(Chunk* chunk, int offset)
     }
     else
     {
+        // Printing line number
         printf("%4d ", chunk->lines[offset]);
     }
     
@@ -66,6 +68,8 @@ int disassembleInstruction(Chunk* chunk, int offset)
             return constantInstruction("OP_CONSTANT", chunk, offset);
         case OP_CONSTANT_LONG:
             return constantLongInstruction("OP_CONSTANT_LONG", chunk, offset);
+        case OP_NEGATE:
+            return simpleInstruction("OP_NEGATE", offset);
         case OP_RETURN:
             return simpleInstruction("OP_RETURN", offset);
         default:

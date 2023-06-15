@@ -19,10 +19,9 @@ int main(int argc, const char* argv[])
     writeChunk(&chunk, OP_CONSTANT, 125); // The first byte is the operand
     writeChunk(&chunk, constant2, 125); // Second byte is the index of the constant
 
-    writeConstant(&chunk, 200, 126); 
-    writeConstant(&chunk, 999, 127); 
+    writeChunk(&chunk, OP_NEGATE,  125);
                                      
-    writeChunk(&chunk, OP_RETURN, 127);
+    writeChunk(&chunk, OP_RETURN, 125);
 
     // DisassembleChunk transforms machine code into textual listings of the instructions
     disassembleChunk(&chunk, "test chunk");
