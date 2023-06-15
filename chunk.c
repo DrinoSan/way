@@ -43,7 +43,6 @@ void writeChunk(Chunk* chunk, uint8_t byte, int line)
 //-----------------------------------------------------------------------------
 void writeConstant(Chunk* chunk, Value value, int line)
 {
-
     uint16_t constIndex = addConstant(chunk, value);
 
     if( constIndex >= 256 )
@@ -70,8 +69,8 @@ void writeConstant(Chunk* chunk, Value value, int line)
         return;
     }
 
+    // First adding OP_CODE -> OP_CONSTANT which is followed by adding the indec of the value 
     writeChunk(chunk, OP_CONSTANT, line);
-
     writeChunk(chunk, constIndex, line);
 }
 
