@@ -46,6 +46,7 @@ static InterpretResult run()
 {
 #define READ_BYTE() (*vm.ip++)
 #define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])
+// TODO: Add READ_CONSTANT_LONG
 
     for(;;)
     {
@@ -53,7 +54,7 @@ static InterpretResult run()
 // Macro to print all instructions in stack
 #ifdef DEBUG_TRACE_EXECUTION
         printf("        ");
-        for(Value* slot = vm.stack; slot < vm.stackTop; slot++)
+        for(Value* slot = vm.stack; slot < vm.stackTop; ++slot)
         {
             printf("[ ");
             printValue(*slot);
