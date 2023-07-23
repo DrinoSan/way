@@ -89,6 +89,7 @@ int main(int argc, const char* argv[])
     else 
     {
         fprintf(stderr, "Usage: way [path]\n");
+        exit(64);
     }
 
     freeVM();
